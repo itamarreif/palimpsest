@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Obsidian — commit only intentional vault settings
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/app.json
+.obsidian/appearance.json
+.obsidian/plugins/*/data.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/

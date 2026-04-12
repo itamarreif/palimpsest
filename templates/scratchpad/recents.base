@@ -1,0 +1,28 @@
+filters:
+  and:
+    - file.ext == "md"
+    - or:
+        - file.inFolder("scratchpad/issues")
+        - file.inFolder("scratchpad/docs")
+        - file.inFolder("scratchpad/rfcs")
+        - file.inFolder("scratchpad/archive/issues")
+        - file.inFolder("scratchpad/archive/docs")
+        - file.inFolder("scratchpad/archive/rfcs")
+formulas:
+  type: if(file.inFolder("scratchpad/docs") or file.inFolder("scratchpad/archive/docs"), "doc", if(file.inFolder("scratchpad/rfcs") or file.inFolder("scratchpad/archive/rfcs"), "rfc", "issue"))
+properties:
+  formula.type:
+    displayName: Type
+views:
+  - type: table
+    name: Recent Activity
+    order:
+      - file.name
+      - formula.type
+      - status
+      - tags
+      - updated
+    sort:
+      - property: updated
+        direction: DESC
+    limit: 30

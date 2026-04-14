@@ -65,9 +65,13 @@ Read each skill in `skills/`. They are ready to use as-is. Only personalize if:
 ## After initialization
 
 1. Delete this file (`INIT_PROMPT.md`).
-2. Point your agent tool at `MASTER_PROMPT.md`:
-   - **Claude Code**: add a reference in `CLAUDE.md`
-   - **OpenCode**: add a reference in `AGENTS.md`
-   - **Claude Projects**: add startup files as project files
+2. Link your agent tools to `MASTER_PROMPT.md`:
+   ```bash
+   bash scripts/link.sh claude                    # Claude Code only
+   bash scripts/link.sh claude opencode           # multiple agents
+   bash scripts/link.sh claude codex opencode     # all three
+   bash scripts/link.sh -f claude                 # overwrite existing
+   ```
+   For Claude Projects: add `MASTER_PROMPT.md` as a project file manually.
 3. Commit the completed scratchpad: `git add -A && git commit -m "init: palimpsest scratchpad"`
 4. Open the vault in Obsidian and verify: Settings → Core plugins → Bases is enabled.

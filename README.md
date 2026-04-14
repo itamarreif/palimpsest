@@ -9,14 +9,15 @@ Palimpsest gives AI agents durable memory across sessions via a structured direc
 ## Quick start
 
 ```bash
-# 1. Create and initialize your repo
-mkdir my-agent && cd my-agent && git init
+# 1. Clone this repo, then scaffold a new vault in a target directory
+./scripts/init.sh ~/my-agent
 
-# 2. Scaffold the structure
-palimpsest init .
+# 2. Link MASTER_PROMPT.md into your agent's config location
+./scripts/link.sh claude codex opencode
 
 # 3. Open INIT_PROMPT.md with your agent
 # The agent will walk you through completing the setup
+claude
 ```
 
 ## Design
@@ -46,14 +47,31 @@ my-agent/
 └── skills/                 # agent procedures (SKILL.md per skill)
 ```
 
-## CLI
+## Scripts
+
+### `scripts/init.sh <directory>`
+
+Scaffolds a new vault from the bundled templates. Creates the full `scratchpad/` and `skills/` directory structure, replaces date placeholders with today's date, and prints next steps.
+
+Refuses to run if `scratchpad/profile.md` already exists in the target.
 
 ```bash
-palimpsest init <directory>   # scaffold a new instance
-palimpsest new issue "title"  # create a numbered issue
-palimpsest new doc "title"    # create a numbered doc
-palimpsest done <id>          # mark issue done
-palimpsest archive <id>       # move to archive/
-palimpsest status             # show open issues
-palimpsest lint               # validate frontmatter
+./scripts/init.sh ~/my-agent
+```
+
+### `scripts/link.sh [-f] <agent...>`
+
+Symlinks `MASTER_PROMPT.md` into each agent's expected config location.
+
+| Agent | Destination |
+|-------|-------------|
+| `claude` | `~/.claude/CLAUDE.md` |
+| `codex` | `~/.codex/AGENTS.md` |
+| `opencode` | `~/.config/opencode/AGENTS.md` |
+
+Pass `-f` to overwrite an existing file or symlink at the destination. Without `-f`, the script errors and skips any destination that already exists.
+
+```bash
+./scripts/link.sh claude opencode        # link two agents
+./scripts/link.sh -f claude              # overwrite existing
 ```

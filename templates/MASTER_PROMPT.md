@@ -46,6 +46,7 @@ The agent is the orchestrator. Skills are the workers. Scratchpad is the shared 
 | `scratchpad-maintenance` | Routing scratchpad hygiene tasks |
 | `obsidian-cli` | Reading/writing frontmatter, searching vault, querying Bases |
 | `diagrams` | Producing a visual explanation of architecture, flow, or decisions |
+| `cross-vault` | Reading another palimpsest vault or delegating to its agent |
 <!-- SKILL_INDEX_END -->
 
 ---

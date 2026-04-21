@@ -127,6 +127,8 @@ After moving, renaming, or deleting files:
 obsidian unresolved verbose
 ```
 
+**Expected unresolved entries**: cross-vault wikilinks of the form `[[vault-name:N-slug]]` always show up here because Obsidian vaults are isolated and can't resolve external qualifiers. The `cross-vault` skill owns these references. Filter them from the broken-link baseline when scanning for real issues.
+
 ## Navigation
 
 ```bash

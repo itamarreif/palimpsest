@@ -110,12 +110,16 @@ tags: []
 
 ## Cross-References
 
-| Location | Format |
-|----------|--------|
-| Prose | `#35` (short), or `[[35-slug]]` (wikilink) |
-| Frontmatter `parent` | `"[[35-slug\|#35]]"` (quoted wikilink) |
-| Frontmatter `related` | block list of quoted wikilinks |
-| GitHub | plain integers in `gh-prs` / `gh-issues` |
+| Location | Format | Example |
+|----------|--------|---------|
+| Same-vault prose | `#35` (short), or `[[35-slug]]` (wikilink) | `[[37-refactor]]` |
+| Cross-vault prose | `[[vault-name:N-slug]]` (vault-qualified wikilink) | `[[coding-agent:37-refactor]]` |
+| Frontmatter `parent` | `"[[35-slug\|#35]]"` (quoted wikilink) | — |
+| Frontmatter `related` (same-vault) | block list of quoted wikilinks | `"[[15-a-doc\|#15]]"` |
+| Frontmatter `related` (cross-vault) | quoted wikilink with vault qualifier | `"[[coding-agent:37-refactor\|coding#37]]"` |
+| GitHub | plain integers in `gh-prs` / `gh-issues` | `[12361, 12420]` |
+
+Cross-vault wikilinks (`[[vault-name:N-slug]]`) are resolved by the `cross-vault` skill against the `## Linked Vaults` table in `profile.md`. Obsidian cannot resolve them natively; they show as unresolved in `obsidian unresolved` and should be filtered from the broken-link baseline.
 
 ## Obsidian CLI
 

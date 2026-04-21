@@ -22,6 +22,23 @@ Per-vault configuration values. Skills reference these at runtime. INIT_PROMPT f
 
 ---
 
+## Linked Vaults
+
+Other palimpsest vaults this agent can read or delegate questions to. The `cross-vault` skill relies on this table. Add or remove entries as the linked vault landscape changes.
+
+| Name | Local path | Remote | Interaction | Notes |
+|------|-----------|--------|-------------|-------|
+<!-- Example row — delete or replace:
+| coding-agent | `~/vaults/coding-agent` | `github.com:alice/coding-agent` | link + ask | Engineering work |
+-->
+
+**Name** — short handle used in cross-vault wikilinks (`[[name:N-slug]]`).
+**Local path** — where the linked vault is cloned on the current machine. Agents fail clearly if this path is missing rather than auto-cloning.
+**Remote** — git URL for cloning on a new machine. Leave empty if not git-backed.
+**Interaction** — `link` (read files), `ask` (delegate via sub-agent session), or `link + ask`.
+
+---
+
 ## TODO: Section 1
 
 <!-- Add your first domain-specific section here.

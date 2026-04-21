@@ -81,6 +81,30 @@ Accept the user's overrides. Compute the final **installed skills** set = core s
 
 ---
 
+### Phase 3b — Link to existing vaults (optional)
+
+The `cross-vault` skill (installed as core) lets this agent read or delegate to other palimpsest vaults the user already maintains. This init session is for **this one vault** — it does not create or initialize other vaults. This phase only records references to vaults the user already has.
+
+Ask:
+
+> Does this agent need to read or delegate questions to any **existing** palimpsest vaults you already maintain? [Y/N]
+
+If **no**, leave the `## Linked Vaults` table in `profile.md` empty. The user can add links later by editing that table.
+
+If **yes**, for each vault the user wants to link, collect:
+
+1. **Name** — short handle used in cross-vault wikilinks (e.g., `coding-agent`, `finance-agent`).
+2. **Local path** — absolute path where that vault is checked out on this machine (e.g., `~/vaults/coding-agent`). If the user doesn't have it cloned on this machine yet, that's fine — still record the intended path.
+3. **Remote** — git URL if the vault is git-backed (so it can be cloned on other machines). Optional; leave empty if not applicable.
+4. **Interaction** — `link` (read files only), `ask` (delegate questions only), or `link + ask` (both). Default to `link + ask` unless the user says otherwise.
+5. **Notes** — one-line description of what the linked vault is for.
+
+Record each entry as a row in the `## Linked Vaults` table in `scratchpad/profile.md`.
+
+Do **not** try to initialize or create the linked vaults during this session. If the user wants to set up another vault, they run `scripts/init.sh` separately for that one.
+
+---
+
 ### Phase 4 — Per-vault config
 
 Ask these questions **only if** `github` bundle was accepted (directly or via override).

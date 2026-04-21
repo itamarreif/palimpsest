@@ -15,10 +15,11 @@ Palimpsest gives AI agents durable memory across sessions via a structured direc
 # 2. Link MASTER_PROMPT.md into your agent's config location
 ./scripts/link.sh claude codex opencode
 
-# 3. Open INIT_PROMPT.md with your agent
-# The agent will walk you through completing the setup,
-# including selecting which optional skills to keep.
-claude
+# 3. Start your agent inside the new vault and walk through INIT_PROMPT.md.
+# The agent will interview you, install the right skills, substitute
+# placeholders, and populate domain TODOs.
+cd ~/my-agent
+claude INIT_PROMPT.md     # or: opencode INIT_PROMPT.md, codex INIT_PROMPT.md
 ```
 
 ## Dependencies
@@ -81,6 +82,7 @@ Skills are procedural guides loaded on demand. They fall into two tiers.
 | `scratchpad-maintenance` | Route scratchpad hygiene tasks to the right skill |
 | `obsidian-cli` | Frontmatter, search, backlinks, Bases via the `obsidian` CLI |
 | `diagrams` | Produce Mermaid / D2 / ASCII diagrams inside scratchpad artifacts |
+| `cross-vault` | Read or delegate to another palimpsest vault (see Composing vaults below) |
 
 ### Optional (selected during INIT_PROMPT)
 
@@ -109,6 +111,46 @@ Values collected during init live in two places:
 - **Each skill's `## Config` section** — skill-specific: branch prefix and worktree dir (in `git` and `worktree-cleanup`).
 
 Update these files directly if your values change later. Skills reference them by name; the agent reads them on demand.
+
+## Composing vaults
+
+A palimpsest vault can read from or delegate questions to other palimpsest vaults the same operator maintains. This makes it easy to have specialized agents — one for coding, one for finance, one for research — that can cross-reference each other when a question spans their domains.
+
+Composability is **trust-based** (any linked vault is fully readable, no public/private boundary) and assumes all linked vaults follow the same palimpsest structure.
+
+### How linking works
+
+Each vault declares the others it knows about in its `profile.md`:
+
+```markdown
+## Linked Vaults
+
+| Name | Local path | Remote | Interaction | Notes |
+|------|-----------|--------|-------------|-------|
+| coding-agent | `~/vaults/coding-agent` | `github.com:alice/coding-agent` | link + ask | Engineering work |
+| finance-agent | `~/vaults/finance-agent` | `github.com:alice/finance-agent` | link + ask | Personal finance |
+```
+
+The `cross-vault` core skill uses this table to look up linked vaults on demand.
+
+### Two modes
+
+- **Linking** — read another vault's issues, docs, RFCs directly. Good for citing a specific artifact or looking up a fact. Cross-vault wikilinks use a qualifier: `[[coding-agent:37-refactor-payments]]`.
+- **Asking** — spawn a new agent session pointed at the linked vault and delegate a question. Good when the answer depends on interpretation the owning agent is better positioned to do.
+
+Both modes are **read-only**. Cross-vault is never used to write into another vault.
+
+### Multi-machine setup
+
+Each vault is typically its own git repo. On each machine or container you work from, clone the vaults you need. The `cross-vault` skill fails clearly when a linked vault isn't cloned locally, printing the exact `git clone` command — it never auto-clones.
+
+For questions that drive decisions (PR state, active handoffs, time-sensitive data), the skill suggests `git -C <linked-vault> pull` before reading to ensure freshness. For passive reference reads, it trusts the current checkout.
+
+### Adding a link
+
+During INIT_PROMPT, the agent asks whether you want to link existing vaults and records them in the `## Linked Vaults` table. You can also add entries later by editing the table directly in `scratchpad/profile.md`.
+
+To add a new specialized agent to your setup, run `scripts/init.sh` for that new vault separately, then add each vault as a link in the other's `## Linked Vaults` table.
 
 ## Scripts
 

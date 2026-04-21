@@ -1,0 +1,44 @@
+filters:
+  and:
+    - file.inFolder("scratchpad/issues")
+    - file.ext == "md"
+    - not:
+        - file.inFolder("scratchpad/archive/issues")
+    - not:
+        - status == "done"
+        - status == "cancelled"
+formulas:
+  days_since_update: if(updated, (today() - date(updated)).days, "")
+properties:
+  status:
+    displayName: Status
+  formula.days_since_update:
+    displayName: Days Stale
+views:
+  - type: table
+    name: Active Issues
+    groupBy:
+      property: status
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - tags
+      - parent
+      - updated
+      - formula.days_since_update
+    sort:
+      - property: formula.days_since_update
+        direction: DESC
+      - property: parent
+        direction: ASC
+  - type: table
+    name: Recently Updated
+    order:
+      - file.name
+      - status
+      - tags
+      - updated
+    sort:
+      - property: updated
+        direction: DESC

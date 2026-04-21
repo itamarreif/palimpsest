@@ -20,9 +20,10 @@ usage() {
 
 [[ $# -eq 1 ]] || usage
 
-# Create the directory before resolving its real path (realpath requires it to exist on macOS).
+# Create the directory first, then resolve its absolute path with cd/pwd so we
+# don't depend on realpath (not present on stock macOS without coreutils).
 mkdir -p "$1"
-TARGET="$(realpath "$1")"
+TARGET="$(cd "$1" && pwd)"
 
 # Guard: refuse to reinitialize an existing vault.
 if [[ -f "$TARGET/scratchpad/profile.md" ]]; then
@@ -34,10 +35,12 @@ fi
 cp -r "$TEMPLATES_DIR/." "$TARGET/"
 
 # Replace TODO date sentinels with today's date (ISO 8601).
+# Only targets frontmatter date fields (created:, updated:) — prose TODOs
+# elsewhere in the template are left for INIT_PROMPT to walk the user through.
 # The .bak dance is required for sed -i portability on macOS.
 TODAY="$(date +%Y-%m-%d)"
 while IFS= read -r -d '' file; do
-  sed -i.bak "s/TODO/$TODAY/g" "$file" && rm "${file}.bak"
+  sed -i.bak -E "s/^(created|updated): TODO$/\1: $TODAY/" "$file" && rm "${file}.bak"
 done < <(find "$TARGET" -name "*.md" -print0)
 
 echo "📜 Initialized Palimpsest vault in $TARGET"

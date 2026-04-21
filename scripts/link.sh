@@ -21,16 +21,23 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VAULT_DIR="$(dirname "$SCRIPT_DIR")"
 MASTER_PROMPT="$VAULT_DIR/MASTER_PROMPT.md"
 
-# Symlink destinations for each supported agent.
-declare -A AGENT_DEST=(
-  [claude]="$HOME/.claude/CLAUDE.md"
-  [codex]="$HOME/.codex/AGENTS.md"
-  [opencode]="$HOME/.config/opencode/AGENTS.md"
-)
+# Symlink destination for each supported agent.
+# Case statement instead of an associative array so this script runs on stock
+# macOS bash 3.2 without Homebrew bash. Returns 1 for unknown agents.
+agent_dest() {
+  case "$1" in
+    claude)   printf '%s\n' "$HOME/.claude/CLAUDE.md" ;;
+    codex)    printf '%s\n' "$HOME/.codex/AGENTS.md" ;;
+    opencode) printf '%s\n' "$HOME/.config/opencode/AGENTS.md" ;;
+    *)        return 1 ;;
+  esac
+}
+
+SUPPORTED_AGENTS="claude codex opencode"
 
 usage() {
   echo "Usage: ./scripts/link.sh [-f] <agent...>" >&2
-  echo "       Agents: claude, codex, opencode" >&2
+  echo "       Agents: $SUPPORTED_AGENTS" >&2
   echo "       -f  overwrite existing destinations" >&2
   exit 1
 }
@@ -52,13 +59,11 @@ fi
 errors=0
 
 for agent in "$@"; do
-  if [[ -z "${AGENT_DEST[$agent]:-}" ]]; then
-    echo "Error: unknown agent '$agent'. Choose from: ${!AGENT_DEST[*]}" >&2
+  if ! dest="$(agent_dest "$agent")"; then
+    echo "Error: unknown agent '$agent'. Choose from: $SUPPORTED_AGENTS" >&2
     errors=$((errors + 1))
     continue
   fi
-
-  dest="${AGENT_DEST[$agent]}"
 
   if [[ -e "$dest" || -L "$dest" ]]; then
     if [[ $FORCE -eq 0 ]]; then

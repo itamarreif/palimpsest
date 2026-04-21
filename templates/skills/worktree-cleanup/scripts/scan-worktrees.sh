@@ -40,7 +40,7 @@ branch_state() {
 }
 
 recommend() {
-  [[ $3 == merged || $4 == done ]] && { printf 'cleanup-candidate\n'; return; }
+  [[ $3 == merged || $4 == "done" ]] && { printf 'cleanup-candidate\n'; return; }
   [[ $3 == base ]] && { printf 'keep\n'; return; }
   (( $1 >= 5242880 && $2 >= 7 )) && { printf 'review-large-old\n'; return; }
   (( $2 >= 21 )) && { printf 'review-stale\n'; return; }

@@ -34,10 +34,12 @@ fi
 cp -r "$TEMPLATES_DIR/." "$TARGET/"
 
 # Replace TODO date sentinels with today's date (ISO 8601).
+# Only targets frontmatter date fields (created:, updated:) — prose TODOs
+# elsewhere in the template are left for INIT_PROMPT to walk the user through.
 # The .bak dance is required for sed -i portability on macOS.
 TODAY="$(date +%Y-%m-%d)"
 while IFS= read -r -d '' file; do
-  sed -i.bak "s/TODO/$TODAY/g" "$file" && rm "${file}.bak"
+  sed -i.bak -E "s/^(created|updated): TODO$/\1: $TODAY/" "$file" && rm "${file}.bak"
 done < <(find "$TARGET" -name "*.md" -print0)
 
 echo "📜 Initialized Palimpsest vault in $TARGET"

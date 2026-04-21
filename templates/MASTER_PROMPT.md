@@ -17,7 +17,7 @@ At the start of every session, read these files **in order** before doing any wo
 
 1. `scratchpad/docs/1-safety-rails.md` — what this agent must never do
 2. `scratchpad/docs/2-workflow.md` — how this scratchpad system works
-3. `scratchpad/profile.md` — current facts; also holds the `next_id` counter
+3. `scratchpad/profile.md` — current facts, vault config, and the `next_id` counter
 
 Then load specific issues and docs on demand as the conversation requires.
 
@@ -37,6 +37,7 @@ The agent is the orchestrator. Skills are the workers. Scratchpad is the shared 
 
 ## Skill Index
 
+<!-- SKILL_INDEX_START -->
 | Skill | When to load |
 |-------|-------------|
 | `issue` | Creating or updating a workstream |
@@ -44,7 +45,8 @@ The agent is the orchestrator. Skills are the workers. Scratchpad is the shared 
 | `archive-issues` | Retiring done/cancelled issues |
 | `scratchpad-maintenance` | Routing scratchpad hygiene tasks |
 | `obsidian-cli` | Reading/writing frontmatter, searching vault, querying Bases |
-| TODO | TODO |
+| `diagrams` | Producing a visual explanation of architecture, flow, or decisions |
+<!-- SKILL_INDEX_END -->
 
 ---
 

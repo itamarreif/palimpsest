@@ -20,9 +20,10 @@ usage() {
 
 [[ $# -eq 1 ]] || usage
 
-# Create the directory before resolving its real path (realpath requires it to exist on macOS).
+# Create the directory first, then resolve its absolute path with cd/pwd so we
+# don't depend on realpath (not present on stock macOS without coreutils).
 mkdir -p "$1"
-TARGET="$(realpath "$1")"
+TARGET="$(cd "$1" && pwd)"
 
 # Guard: refuse to reinitialize an existing vault.
 if [[ -f "$TARGET/scratchpad/profile.md" ]]; then

@@ -21,6 +21,24 @@ Palimpsest gives AI agents durable memory across sessions via a structured direc
 claude
 ```
 
+## Dependencies
+
+### Always required
+
+- **bash, git** — any modern version. Scripts target stock macOS bash 3.2.
+- **[Obsidian](https://obsidian.md)** — the vault is a valid Obsidian vault.
+- **Obsidian's built-in CLI** — enable inside Obsidian per https://obsidian.md/help/cli. Core skills (`issue`, `doc`, `archive-issues`, `obsidian-cli`) prefer it for frontmatter and search; they fall back to direct YAML editing if it's not available.
+
+### Required by optional skills
+
+| Skill | Tool | Install |
+|-------|------|---------|
+| `gh-cli` (+ gh-gated sections in `rfc`, `master-issue`, `weekly-summary`) | `gh` | macOS: `brew install gh` · Debian/Ubuntu: `apt install gh` · otherwise https://cli.github.com. Then run `gh auth login`. |
+| `worktree-cleanup` | `rg` (ripgrep) | macOS: `brew install ripgrep` · Debian/Ubuntu: `apt install ripgrep` |
+| `diagrams` | Mermaid-capable viewer | Obsidian, GitHub preview, or VS Code with a Mermaid extension |
+
+INIT_PROMPT will print a tailored dependency checklist for your installed skill set after it finishes setup.
+
 ## Design
 
 - **Plain text** — Markdown + YAML frontmatter. No database, no API, no vendor lock-in.

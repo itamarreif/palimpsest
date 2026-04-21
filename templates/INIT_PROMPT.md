@@ -173,6 +173,25 @@ Inside the `<!-- SKILL_INDEX_START -->` / `<!-- SKILL_INDEX_END -->` markers, ad
 
 Preserve the existing core rows. Do not remove the anchor comments.
 
+#### 5e. Report required dependencies
+
+Inspect the installed skill set from step 5a and print a tailored dependency summary so the user can install anything missing before using the vault.
+
+Always include:
+
+- **Obsidian with its built-in CLI enabled** — https://obsidian.md/help/cli
+
+Then include **only** the lines that apply to the installed optional skills:
+
+- If `gh-cli`, `rfc`, `master-issue`, or `weekly-summary` is installed:
+  > `gh` CLI — install on macOS with `brew install gh`, Debian/Ubuntu with `apt install gh`, otherwise see https://cli.github.com. After install, run `gh auth login`.
+- If `worktree-cleanup` is installed:
+  > `rg` (ripgrep) — install on macOS with `brew install ripgrep`, Debian/Ubuntu with `apt install ripgrep`.
+
+`diagrams` is always installed and needs no separate CLI — diagrams render in Obsidian, GitHub previews, and VS Code with the Mermaid extension.
+
+Skip lines for skills that aren't installed. If the user confirms all listed tools are already present, note that and move on.
+
 ---
 
 ### Phase 6 — Safety rails

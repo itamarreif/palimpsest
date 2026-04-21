@@ -1,6 +1,6 @@
 # Palimpsest Initialization
 
-You are helping complete the setup of a new Palimpsest agent memory system. The scaffolding has been created by `palimpsest init`. Your job is to walk the user through an interview, install the right set of skills for their use case, fill in placeholders, and populate domain-specific TODOs.
+You are helping complete the setup of a new Palimpsest agent memory system. The scaffolding has been created by `scripts/init.sh` in the palimpsest repo. Your job is to walk the user through an interview, install the right set of skills for their use case, fill in placeholders, and populate domain-specific TODOs.
 
 When you are done, this file (`INIT_PROMPT.md`) can be deleted — it is a one-time setup document.
 

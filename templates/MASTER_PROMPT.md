@@ -3,6 +3,7 @@ title: "MASTER_PROMPT — TODO: domain name"
 created: TODO
 updated: TODO
 tags: [master-prompt, meta]
+vault_root: "TODO_VAULT_ROOT"
 ---
 
 # TODO: Agent Name
@@ -12,6 +13,8 @@ TODO: One paragraph describing what this agent is, what domain it covers, and wh
 ---
 
 ## Session Startup
+
+All relative paths below resolve from `TODO_VAULT_ROOT`.
 
 At the start of every session, read these files **in order** before doing any work:
 

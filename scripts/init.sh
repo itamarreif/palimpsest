@@ -43,6 +43,12 @@ while IFS= read -r -d '' file; do
   sed -i.bak -E "s/^(created|updated): TODO$/\1: $TODAY/" "$file" && rm "${file}.bak"
 done < <(find "$TARGET" -name "*.md" -print0)
 
+# Replace TODO_VAULT_ROOT with the absolute path to this vault so the agent
+# always has an unambiguous anchor when resolving relative paths in session startup.
+while IFS= read -r -d '' file; do
+  sed -i.bak "s|TODO_VAULT_ROOT|$TARGET|g" "$file" && rm "${file}.bak"
+done < <(find "$TARGET" -name "*.md" -print0)
+
 echo "📜 Initialized Palimpsest vault in $TARGET"
 echo ""
 echo "Next steps:"

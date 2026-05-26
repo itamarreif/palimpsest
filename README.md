@@ -122,9 +122,11 @@ Refuses to run if `scratchpad/profile.md` already exists in the target.
 ./scripts/init.sh ~/my-agent
 ```
 
-### `scripts/link.sh [-f] <agent...>`
+### `scripts/link.sh [-f] [--vault <vault-dir>] [--dir <project-dir>] <agent...>`
 
 Symlinks `MASTER_PROMPT.md` into each agent's expected config location.
+
+**Global destinations (default):**
 
 | Agent | Destination |
 |-------|-------------|
@@ -132,9 +134,25 @@ Symlinks `MASTER_PROMPT.md` into each agent's expected config location.
 | `codex` | `~/.codex/AGENTS.md` |
 | `opencode` | `~/.config/opencode/AGENTS.md` |
 
-Pass `-f` to overwrite an existing file or symlink at the destination. Without `-f`, the script errors and skips any destination that already exists.
+**Options:**
+
+- `-f` — overwrite an existing file or symlink at the destination (default: error and skip)
+- `--vault <path>` — path to the vault containing `MASTER_PROMPT.md`. Defaults to the parent directory of the script. Use this when running `link.sh` from the palimpsest repo against a vault installed elsewhere.
+- `--dir <path>` — link into a project directory instead of the global config, so agents load the vault automatically when working anywhere under that directory tree:
+
+  | Agent | Destination |
+  |-------|-------------|
+  | `claude` | `<path>/CLAUDE.md` |
+  | `codex` | `<path>/AGENTS.md` |
+  | `opencode` | `<path>/.opencode/AGENTS.md` |
 
 ```bash
-./scripts/link.sh claude opencode        # link two agents
-./scripts/link.sh -f claude              # overwrite existing
+# Link to global agent configs (typical first-time setup)
+./scripts/link.sh claude opencode
+
+# Overwrite an existing global link
+./scripts/link.sh -f claude
+
+# Link to a project directory — vault lives outside the palimpsest repo
+./scripts/link.sh --vault ~/.agents --dir ~/code/ai claude opencode
 ```

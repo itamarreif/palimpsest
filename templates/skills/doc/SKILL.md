@@ -2,6 +2,7 @@
 name: doc
 description: Create and maintain durable scratchpad docs for settled knowledge, workflows, and reference material.
 user-invocable: true
+persona: principal
 created: TODO
 ---
 

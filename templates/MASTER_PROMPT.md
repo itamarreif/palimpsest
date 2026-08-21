@@ -21,8 +21,12 @@ At the start of every session, read these files **in order** before doing any wo
 1. `scratchpad/docs/1-safety-rails.md` — what this agent must never do
 2. `scratchpad/docs/2-workflow.md` — how this scratchpad system works
 3. `scratchpad/profile.md` — current facts, vault config, and the `next_id` counter
+4. `personas/README.md` — persona selection rules
+5. `personas/collaborator.md` — the default chat persona
 
 Then load specific issues and docs on demand as the conversation requires.
+
+Skills can declare `persona: <name>` in frontmatter. Load the named persona before using that skill. If no skill declares a persona, use `collaborator`.
 
 ---
 

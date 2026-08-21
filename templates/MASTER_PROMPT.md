@@ -26,7 +26,7 @@ At the start of every session, read these files **in order** before doing any wo
 
 Then load specific issues and docs on demand as the conversation requires.
 
-Skills can declare `persona: <name>` in frontmatter. Load the named persona before using that skill. If no skill declares a persona, use `collaborator`.
+Skills can declare `persona: <name>` in frontmatter. Load the named persona only while using that skill, then restore `collaborator`. If no skill declares a persona, use `collaborator`.
 
 ---
 
@@ -49,6 +49,7 @@ The agent is the orchestrator. Skills are the workers. Scratchpad is the shared 
 |-------|-------------|
 | `issue` | Creating or updating a workstream |
 | `doc` | Capturing settled knowledge |
+| `asd-ste100` | Writing clear technical prose |
 | `archive-issues` | Retiring done/cancelled issues |
 | `scratchpad-maintenance` | Routing scratchpad hygiene tasks |
 | `obsidian-cli` | Reading/writing frontmatter, searching vault, querying Bases |

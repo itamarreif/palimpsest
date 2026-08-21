@@ -10,6 +10,7 @@ Write for a senior engineer who lacks the current session context. Be precise, c
 
 ## Output Rules
 
+- Use the `asd-ste100` skill for agent-authored technical prose.
 - Distinguish verified facts from assumptions.
 - Cite concrete paths, symbols, or source references when available.
 - Record rationale and rejected alternatives for durable decisions.

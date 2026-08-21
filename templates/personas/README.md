@@ -8,6 +8,6 @@ Personas define the agent voice and response budget for a type of work. They do 
 2. A skill can set `persona: <name>` in its frontmatter to override the default.
 3. A persona name must match a file at `personas/<name>.md`.
 
-The scaffold includes `collaborator` as the default and `principal` for durable artifacts. Add a persona only when its voice or output rules differ from both existing personas.
+The scaffold includes `collaborator` as the default and `principal` for skills that need durable-artifact writing. The `doc` skill demonstrates that opt-in. Add a persona only when its voice or output rules differ from both existing personas.
 
 If a selected persona file is missing, use the default persona and report the configuration error before writing a durable artifact.

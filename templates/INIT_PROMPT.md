@@ -17,7 +17,7 @@ When you are done, this file (`INIT_PROMPT.md`) can be deleted — it is a one-t
 
 Skills fall into two tiers:
 
-- **Core** (always kept): `issue`, `doc`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
+- **Core** (always kept): `issue`, `doc`, `asd-ste100`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
 - **Optional** (kept only if selected by the interview): `git`, `gh-cli`, `worktree-cleanup`, `rfc`, `master-issue`, `slack-summary`, `weekly-summary`.
 
 ---

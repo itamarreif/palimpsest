@@ -78,6 +78,7 @@ Skills are procedural guides loaded on demand. They fall into two tiers.
 |-------|--------------|
 | `issue` | Create and maintain scratchpad issues |
 | `doc` | Create and maintain durable docs |
+| `asd-ste100` | Write clear, controlled technical prose |
 | `archive-issues` | Move done/cancelled issues to archive |
 | `scratchpad-maintenance` | Route scratchpad hygiene tasks to the right skill |
 | `obsidian-cli` | Frontmatter, search, backlinks, Bases via the `obsidian` CLI |
@@ -119,7 +120,7 @@ Update these files directly if your values change later. Skills reference them b
 
 ### `scripts/init.sh <directory>`
 
-Scaffolds a new vault from the bundled templates. Copies the full `scratchpad/` and `skills/` directory structure, replaces `created:` / `updated:` frontmatter date sentinels with today's date, and prints next steps.
+Scaffolds a new vault from the bundled templates. Copies the full template tree, including `personas/`, `scratchpad/`, and `skills/`, replaces `created:` / `updated:` frontmatter date sentinels with today's date, and prints next steps.
 
 Refuses to run if `scratchpad/profile.md` already exists in the target.
 

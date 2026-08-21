@@ -60,7 +60,7 @@ my-agent/
 │   ├── recents.base        # Obsidian Bases: recent activity
 │   ├── docs/               # durable knowledge
 │   ├── issues/             # active workstreams
-│   ├── rfcs/               # design documents (optional)
+│   ├── rfcs/               # legacy standalone RFCs only
 │   └── archive/            # retired content, preserved
 │       ├── issues/
 │       ├── docs/
@@ -91,7 +91,7 @@ Skills are procedural guides loaded on demand. They fall into two tiers.
 | `git` | `github` | Local git workflows, branch naming, conflict resolution |
 | `gh-cli` | `github` | GitHub PRs, issues, checks, comments, sub-issues via `gh` |
 | `worktree-cleanup` | `github` | Audit and clean up registered git worktrees |
-| `rfc` | `structured-design` | Orchestrate RFC drafting, research, and PR handoff |
+| `rfc` | `structured-design` | Draft RFCs as issue overlays, then promote them to PRs |
 | `master-issue` | `structured-design` | Rollup tracking for multi-PR, multi-session workstreams |
 | `slack-summary` | `reporting` | Draft Slack-ready status updates and standup blurbs |
 | `weekly-summary` | `reporting` | Cross-reference GitHub PRs with scratchpad state; produce a weekly summary |

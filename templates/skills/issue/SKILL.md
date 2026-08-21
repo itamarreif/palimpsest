@@ -23,6 +23,7 @@ Do not use this for physical archival — hand off to `archive-issues` for that.
 ## Status Semantics
 
 - `done` — the issue's intended work is complete.
+- `draft` — the issue is framed but not yet active.
 - `in-progress` — actively being worked.
 - `blocked` — active but cannot currently proceed.
 - `cancelled` — no longer relevant, superseded, or closed due to staleness.
@@ -50,9 +51,10 @@ Do not use this for physical archival — hand off to `archive-issues` for that.
 
 ### 3. Keep the issue current
 
-- Update frontmatter and relevant sections (`## Context`, `## Goal`, `## Approach`, `## Plan`, `## Notes`, `## Open Questions`) as work evolves.
+- Update frontmatter and relevant sections (`## Status`, `## Context`, `## Goal`, `## Plan`, `## Decisions`, `## Notes`, `## Open Questions`, `## Superseded`, `## Log`) as work evolves.
 - **Obsidian CLI**: Use `obsidian property:set` for scalar frontmatter updates. Use `obsidian tasks todo file="N-slug"` to inspect plan progress. Use `obsidian task file="N-slug" line=N done` to toggle checkboxes.
 - Keep `updated:` accurate on material changes.
+- Use `## Status` for current truth, `## Decisions` for resolved choices, `## Superseded` for abandoned approaches, and `## Log` for dated session updates.
 
 ### 4. Complete an issue
 

@@ -38,6 +38,7 @@ Archive `done` or `cancelled` scratchpad issues so active work stays separate fr
 - `done` — work actually finished.
 - `cancelled` — stale, superseded, or no longer relevant.
 - Never archive a stale issue as `done`.
+- Do not archive an `rfc-draft` issue. Archive an RFC issue only when it has `rfc-promoted`, `status: done`, and no active implementation work.
 
 ### 5. Archive the files
 

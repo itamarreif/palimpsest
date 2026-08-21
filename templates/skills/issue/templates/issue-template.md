@@ -10,6 +10,10 @@ gh-issues: []
 tags: []
 ---
 
+## Status
+
+<Current state and immediate next action.>
+
 ## Context
 
 <1-3 sentences: why this work exists, what triggered it>
@@ -28,6 +32,10 @@ tags: []
 - [ ] <task>
 - [ ] <task>
 
+## Decisions
+
+- <resolved decision and rationale>
+
 ## Notes
 
 - <technical notes, discoveries, gotchas>
@@ -35,3 +43,13 @@ tags: []
 ## Open Questions
 
 - <unresolved decision or blocker>
+
+## Superseded
+
+- <abandoned approach and reason>
+
+---
+
+## Log
+
+- <dated session update>

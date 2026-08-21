@@ -1,8 +1,11 @@
 <!--
-Apply this overlay to an issue created with the issue template.
-Add rfc-draft to tags. Insert Research Findings, Proposed Design, and RFC Body
-between Goal and Plan. On promotion, rename RFC Body to Draft Archive and move
-it above Log. Add Review Status near the top of the issue.
+Apply this overlay to an issue created with the issue template. Add `rfc-draft`
+to tags. Keep `## Approach` after `## Goal`, then insert `## Research Findings`,
+`## Proposed Design`, and `## RFC Body` before `## Plan`.
+
+On promotion, copy unresolved questions from the embedded RFC body to the issue
+`## Open Questions` section. Rename `## RFC Body` to `## Draft Archive`, move it
+above `## Log`, and add `## Review Status` near the top of the issue.
 -->
 
 ## Research Findings
@@ -43,6 +46,6 @@ it above Log. Add Review Status near the top of the issue.
 
 <Implementation and verification sequence.>
 
-## Open Questions
+## Remaining Questions
 
-<Working questions. After promotion, the issue `## Open Questions` section is authoritative.>
+<Working questions. Before promotion, copy unresolved items to the issue `## Open Questions` section.>

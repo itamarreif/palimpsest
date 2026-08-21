@@ -31,6 +31,8 @@ Record durable findings in `## Research Findings`. Record unresolved choices in 
 3. Apply `templates/rfc-template.md` to the issue body.
 4. Fill `## Context`, `## Goal`, `## Research Findings`, and `## Proposed Design` before drafting the RFC body.
 
+The resulting issue order is `Status`, `Context`, `Goal`, `Approach`, `Research Findings`, `Proposed Design`, `RFC Body`, `Plan`, `Decisions`, `Notes`, `Open Questions`, `Superseded`, and `Log`.
+
 Use the `principal` persona only while writing `## RFC Body`. The body must stand alone for readers outside the scratchpad.
 
 ### 3. Promote To A PR
@@ -41,13 +43,14 @@ Use the `principal` persona only while writing `## RFC Body`. The body must stan
 2. Extract `## RFC Body` into the repository RFC file. Remove scratchpad-only links and metadata.
 3. Open a draft PR through `gh-cli`.
 4. Update the RFC issue:
+   - Copy unresolved questions from `## RFC Body` into the issue `## Open Questions` section.
    - Rename `## RFC Body` to `## Draft Archive`.
    - Add `## Review Status` near the top.
    - Replace `rfc-draft` with `rfc-promoted` in `tags`.
    - Record the PR number in `gh-prs`.
    - Set `status: in-progress`.
    - Rewrite `## Status` to reflect review state.
-   - Append a promotion entry to `## Log`.
+   - Append a promotion entry to `## Log` that records the question transfer.
 
 ### 4. Review And Implementation
 

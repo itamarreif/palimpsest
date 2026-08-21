@@ -18,11 +18,9 @@ scratchpad/
 ├── recents.base        # Obsidian Bases: recent activity
 ├── docs/               # durable knowledge (numbered)
 ├── issues/             # active workstreams (numbered)
-├── rfcs/               # legacy standalone RFCs only
 └── archive/            # retired content, preserved forever
     ├── issues/
     ├── docs/
-    └── rfcs/
 ```
 
 ## Numbering
@@ -42,7 +40,7 @@ IDs are never reused, even after archiving.
 
 **Issues** — workstreams. Track in-flight work with a `status`, `## Plan` checkboxes, and optional parent/child links. Status values: `draft`, `in-progress`, `done`, `cancelled`.
 
-**RFCs** — issue overlays. New RFCs are issues tagged `rfc-draft`; their `## RFC Body` becomes the canonical repository RFC at promotion. `scratchpad/rfcs/` contains legacy records only.
+**RFCs** — issue overlays. New RFCs are issues tagged `rfc-draft`; their `## RFC Body` becomes the canonical repository RFC at promotion.
 
 **Docs** — settled knowledge. No `status` field. Durable reference material that evolves via edits.
 

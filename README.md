@@ -60,11 +60,9 @@ my-agent/
 │   ├── recents.base        # Obsidian Bases: recent activity
 │   ├── docs/               # durable knowledge
 │   ├── issues/             # active workstreams
-│   ├── rfcs/               # legacy standalone RFCs only
 │   └── archive/            # retired content, preserved
 │       ├── issues/
-│       ├── docs/
-│       └── rfcs/
+│       └── docs/
 └── skills/                 # agent procedures (SKILL.md per skill)
 ```
 

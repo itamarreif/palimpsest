@@ -45,4 +45,4 @@ it above Log. Add Review Status near the top of the issue.
 
 ## Open Questions
 
-<Keep this in sync with the issue Open Questions section.>
+<Working questions. After promotion, the issue `## Open Questions` section is authoritative.>

@@ -14,7 +14,7 @@ RFCs are scratchpad issues, not standalone files. The issue stays durable throug
 - A user requests an RFC, design proposal, or architecture decision that needs review.
 - An existing RFC issue needs research, promotion, review tracking, or implementation follow-up.
 
-Do not create new files in `scratchpad/rfcs/`. That directory holds legacy standalone RFCs only.
+Do not create standalone scratchpad RFC files.
 
 ## Lifecycle
 
@@ -43,8 +43,9 @@ Use the `principal` persona only while writing `## RFC Body`. The body must stan
 4. Update the RFC issue:
    - Rename `## RFC Body` to `## Draft Archive`.
    - Add `## Review Status` near the top.
-   - Add `rfc-promoted` to `tags`.
+   - Replace `rfc-draft` with `rfc-promoted` in `tags`.
    - Record the PR number in `gh-prs`.
+   - Set `status: in-progress`.
    - Rewrite `## Status` to reflect review state.
    - Append a promotion entry to `## Log`.
 
@@ -68,9 +69,5 @@ When the PR merges, continue implementation in the RFC issue or create child iss
 | Signal | State | Action |
 |---|---|---|
 | `rfc-draft`, no `gh-prs` | Drafting | Edit `## RFC Body`. |
-| `rfc-draft` and `rfc-promoted`, has `gh-prs` | In review | Update the PR and operational tracker. |
+| `rfc-promoted`, has `gh-prs` | In review | Update the PR and operational tracker. |
 | `rfc-promoted`, `status: done` | Complete | Archive through `archive-issues`. |
-
-## Legacy RFCs
-
-Standalone files in `scratchpad/rfcs/` are read-only historical records. If a legacy RFC needs more work, create a linked issue and use the issue-overlay workflow.

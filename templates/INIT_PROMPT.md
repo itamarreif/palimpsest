@@ -76,9 +76,7 @@ After asking all three, offer the escape hatch:
 
 Accept the user's overrides. Compute the final **installed skills** set = core skills + selected optional skills.
 
-**Cross-skill dependency note**: `pr-scope-analysis`, `rfc`, `master-issue`, and `weekly-summary` depend on `gh-cli`. If the user selects one without `gh-cli`, ask whether to add `gh-cli`.
-
-> `<skill>` has some sections that depend on `gh-cli`. Those sections are gated with a "requires gh-cli" note; they'll be skipped at runtime. Proceed?
+**Cross-skill dependency note**: `pr-scope-analysis` requires `gh-cli`. If the user selects it without `gh-cli`, add `gh-cli` or remove `pr-scope-analysis` from the installed set. `rfc`, `master-issue`, and `weekly-summary` can run in limited local-only mode without `gh-cli`.
 
 ---
 
@@ -124,7 +122,7 @@ rm -rf skills/weekly-summary
 rm -rf skills/weekly-scratchpad-triage
 ```
 
-Only run the lines for skills that were rejected. Do not touch core skills (`issue`, `doc`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`).
+Only run the lines for skills that were rejected. Do not touch core skills (`issue`, `doc`, `asd-ste100`, `revise-issue`, `code-comments`, `code-references`, `work-estimates`, `plan-sketch`, `plan-revision`, `plan-checkpoint`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`).
 
 #### 5b. Substitute placeholders
 

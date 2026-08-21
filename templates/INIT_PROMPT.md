@@ -9,6 +9,7 @@ When you are done, this file (`INIT_PROMPT.md`) can be deleted — it is a one-t
 ## What was created
 
 - `MASTER_PROMPT.md` — agent role, startup sequence, skill index.
+- `personas/` — chat and durable-artifact voice rules.
 - `scratchpad/docs/1-safety-rails.md` — safety constraints.
 - `scratchpad/docs/2-workflow.md` — how the scratchpad system works.
 - `scratchpad/profile.md` — user facts singleton with a `## Config` section and `next_id: 3`.
@@ -16,7 +17,7 @@ When you are done, this file (`INIT_PROMPT.md`) can be deleted — it is a one-t
 
 Skills fall into two tiers:
 
-- **Core** (always kept): `issue`, `doc`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
+- **Core** (always kept): `issue`, `doc`, `asd-ste100`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
 - **Optional** (kept only if selected by the interview): `git`, `gh-cli`, `worktree-cleanup`, `rfc`, `master-issue`, `slack-summary`, `weekly-summary`.
 
 ---
@@ -36,7 +37,7 @@ Ask the user:
 - What should the agent **never** do? (domain-specific hard constraints — captured in `MASTER_PROMPT.md` Scope and `scratchpad/docs/1-safety-rails.md`)
 - What should the agent **always** do? (mandatory behaviors, accuracy requirements)
 
-Fill in the matching TODOs in `MASTER_PROMPT.md` (`# TODO: Agent Name`, `## Scope`, `## Accuracy Rules`). Keep the pre-filled startup sequence, design philosophy, and skill index intact.
+Fill in the matching TODOs in `MASTER_PROMPT.md` (`# TODO: Agent Name`, `## Scope`, `## Accuracy Rules`). Keep the pre-filled startup sequence, design philosophy, persona rules, and skill index intact.
 
 ---
 

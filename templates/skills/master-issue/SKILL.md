@@ -2,6 +2,7 @@
 name: master-issue
 description: Create and maintain scratchpad master issues, keeping the rollup current across sub-issues, PRs, and remaining work.
 user-invocable: true
+persona: principal
 created: TODO
 ---
 

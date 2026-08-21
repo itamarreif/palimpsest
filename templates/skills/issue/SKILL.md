@@ -2,6 +2,7 @@
 name: issue
 description: Create, update, and review the lifecycle of scratchpad issues, from initial creation through hygiene and resolution.
 user-invocable: true
+persona: collaborator
 created: TODO
 ---
 

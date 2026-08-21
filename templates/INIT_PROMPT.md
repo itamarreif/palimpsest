@@ -18,7 +18,7 @@ When you are done, this file (`INIT_PROMPT.md`) can be deleted — it is a one-t
 Skills fall into two tiers:
 
 - **Core** (always kept): `issue`, `doc`, `asd-ste100`, `revise-issue`, `code-comments`, `code-references`, `work-estimates`, `plan-sketch`, `plan-revision`, `plan-checkpoint`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
-- **Optional** (kept only if selected by the interview): `git`, `gh-cli`, `worktree-cleanup`, `pr-scope-analysis`, `rfc`, `master-issue`, `slack-summary`, `weekly-summary`.
+- **Optional** (kept only if selected by the interview): `git`, `gh-cli`, `worktree-cleanup`, `pr-scope-analysis`, `rfc`, `master-issue`, `slack-summary`, `weekly-summary`, `weekly-scratchpad-triage`.
 
 ---
 
@@ -66,7 +66,7 @@ Ask each bundle question in order. Record which bundles the user accepts.
 
 > Will you write design documents or track multi-PR workstreams? [Y/N]
 
-**Bundle C — `reporting` (target: `slack-summary`, `weekly-summary`)**
+**Bundle C — `reporting` (target: `slack-summary`, `weekly-summary`, `weekly-scratchpad-triage`)**
 
 > Will you need Slack-ready updates or weekly summaries? [Y/N]
 
@@ -121,6 +121,7 @@ rm -rf skills/rfc
 rm -rf skills/master-issue
 rm -rf skills/slack-summary
 rm -rf skills/weekly-summary
+rm -rf skills/weekly-scratchpad-triage
 ```
 
 Only run the lines for skills that were rejected. Do not touch core skills (`issue`, `doc`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`).
@@ -173,6 +174,7 @@ Inside the `<!-- SKILL_INDEX_START -->` / `<!-- SKILL_INDEX_END -->` markers, ad
 | `master-issue` | Multi-PR, multi-session workstream rollups |
 | `slack-summary` | Drafting Slack-ready updates or standup blurbs |
 | `weekly-summary` | End-of-week PR + scratchpad reconciliation |
+| `weekly-scratchpad-triage` | Weekly scratchpad lifecycle cleanup |
 
 Preserve the existing core rows. Do not remove the anchor comments.
 

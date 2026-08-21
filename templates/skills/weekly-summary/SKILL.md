@@ -60,7 +60,7 @@ For every active scratchpad issue with a linked `gh-prs:` PR or `gh-issues:` iss
 1. Check each linked PR's merge state and each linked issue's open/closed state via `gh`.
 2. Compare against the scratchpad `status:` field.
 3. If a scratchpad issue's primary PR has merged and all completion criteria are met, update it to `done`.
-4. If a scratchpad issue's PR is open but was previously marked `in-progress`, check if it's now in review and update accordingly.
+4. If a scratchpad issue's PR is open for review, keep `status: in-progress` and record the review state in `## Status`.
 5. Update the `updated:` date in frontmatter.
 6. Add a `## Status` note or update the existing one with the current GH state (e.g., "PR #NNNN merged YYYY-MM-DD").
 7. Remove stale references (e.g., `pr#TBD-*` placeholders that were never opened).
@@ -167,7 +167,7 @@ Stale issues updated:
 | 48 | Mock email API validation | done |
 | 51 | E2E test matrix | in-progress |
 | 55 | Report tool improvements | in-progress |
-| 56 | Domain-types skill | in-review |
+| 56 | Domain-types skill | in-progress (in review) |
 ```
 
 ---

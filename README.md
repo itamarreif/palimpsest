@@ -101,6 +101,7 @@ Skills are procedural guides loaded on demand. They fall into two tiers.
 | `master-issue` | `structured-design` | Rollup tracking for multi-PR, multi-session workstreams |
 | `slack-summary` | `reporting` | Draft Slack-ready status updates and standup blurbs |
 | `weekly-summary` | `reporting` | Cross-reference GitHub PRs with scratchpad state; produce a weekly summary |
+| `weekly-scratchpad-triage` | `reporting` | Triage stale issues and archive confirmed historical work |
 
 During `INIT_PROMPT.md`, the agent interviews you with three bundle questions and an escape hatch, then:
 

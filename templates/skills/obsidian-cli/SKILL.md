@@ -215,12 +215,10 @@ filters:
     - or:
         - file.inFolder("scratchpad/issues")
         - file.inFolder("scratchpad/docs")
-        - file.inFolder("scratchpad/rfcs")
         - file.inFolder("scratchpad/archive/issues")
         - file.inFolder("scratchpad/archive/docs")
-        - file.inFolder("scratchpad/archive/rfcs")
 formulas:
-  type: if(file.inFolder("scratchpad/docs") or file.inFolder("scratchpad/archive/docs"), "doc", if(file.inFolder("scratchpad/rfcs") or file.inFolder("scratchpad/archive/rfcs"), "rfc", "issue"))
+  type: if(tags.contains("rfc-draft") or tags.contains("rfc-promoted"), "rfc", if(file.inFolder("scratchpad/docs") or file.inFolder("scratchpad/archive/docs"), "doc", "issue"))
 views:
   - type: table
     name: Recently Updated

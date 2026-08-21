@@ -42,6 +42,7 @@ Archive `done` or `cancelled` scratchpad issues so active work stays separate fr
 
 ### 5. Archive the files
 
+- When an issue has `## Scope` and linked PRs, append measured actuals before moving it. Use the PR diff for files and rough change volume.
 - Move files to `scratchpad/archive/issues/`.
 - Preserve filenames and IDs.
 

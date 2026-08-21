@@ -77,6 +77,13 @@ Skills are procedural guides loaded on demand. They fall into two tiers.
 | `issue` | Create and maintain scratchpad issues |
 | `doc` | Create and maintain durable docs |
 | `asd-ste100` | Write clear, controlled technical prose |
+| `revise-issue` | Curate long or stale issue bodies |
+| `code-comments` | Keep source comments and TODOs useful |
+| `code-references` | Reference and quote source code consistently |
+| `work-estimates` | Estimate scope without calendar time |
+| `plan-sketch` | Create detailed implementation plans |
+| `plan-revision` | Update plans after new evidence |
+| `plan-checkpoint` | Assess plan readiness and progress |
 | `archive-issues` | Move done/cancelled issues to archive |
 | `scratchpad-maintenance` | Route scratchpad hygiene tasks to the right skill |
 | `obsidian-cli` | Frontmatter, search, backlinks, Bases via the `obsidian` CLI |
@@ -89,6 +96,7 @@ Skills are procedural guides loaded on demand. They fall into two tiers.
 | `git` | `github` | Local git workflows, branch naming, conflict resolution |
 | `gh-cli` | `github` | GitHub PRs, issues, checks, comments, sub-issues via `gh` |
 | `worktree-cleanup` | `github` | Audit and clean up registered git worktrees |
+| `pr-scope-analysis` | `github` | Analyze PR scope and split boundaries |
 | `rfc` | `structured-design` | Draft RFCs as issue overlays, then promote them to PRs |
 | `master-issue` | `structured-design` | Rollup tracking for multi-PR, multi-session workstreams |
 | `slack-summary` | `reporting` | Draft Slack-ready status updates and standup blurbs |

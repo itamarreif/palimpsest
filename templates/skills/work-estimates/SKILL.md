@@ -16,11 +16,11 @@ Estimate scope only after an issue has a plan.
 - Include files, rough change volume, packages, migrations, public API changes, test surface, and open questions only when applicable.
 - State uncertainty explicitly. Open questions reduce confidence.
 
-## Issue Scope Block
+## Scope Content
+
+The issue template already provides `## Scope`. Add this content inside that section.
 
 ```markdown
-## Scope
-
 **Initial (YYYY-MM-DD):** Size M, medium confidence.
 - Files: ~8 / LoC: ~250 / Packages: 2 / Migrations: 0 / Public API: 1 / Open Qs: 2
 - Risk: medium — shared workflow changes.

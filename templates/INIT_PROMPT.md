@@ -134,7 +134,7 @@ Placeholders and their targets:
 
 | Placeholder | Value source | Files to substitute (if installed) |
 |-------------|--------------|------------------------------------|
-| `{{TARGET_REPOS}}` | Comma-separated target repos | `skills/gh-cli/SKILL.md`, `skills/weekly-summary/SKILL.md` |
+| `{{TARGET_REPOS}}` | Comma-separated target repos, or `none` when GitHub is not selected | `skills/gh-cli/SKILL.md`, `skills/weekly-summary/SKILL.md` |
 | `{{PRIMARY_REPO}}` | First target repo | `skills/gh-cli/SKILL.md`, `skills/rfc/SKILL.md` |
 | `{{BRANCH_PREFIX}}` | Branch prefix | `skills/git/SKILL.md` |
 | `{{WORKTREE_DIR}}` | Worktree dir | `skills/git/SKILL.md`, `skills/worktree-cleanup/SKILL.md` |
@@ -148,7 +148,7 @@ grep -rn '{{' skills/ && echo "WARNING: unsubstituted placeholders remaining" ||
 
 If any `{{...}}` tokens remain in installed skills, report them and offer to re-fill.
 
-**Empty-value handling**: if a value is empty (e.g., Stack is "none"), substitute the placeholder with an empty string. Where that leaves an awkward sentence fragment, trim the sentence or rephrase inline.
+**Empty-value handling**: if a value is empty, substitute the placeholder with an empty string. Set `{{TARGET_REPOS}}` to `none` when GitHub is not selected so `weekly-summary` remains usable in scratchpad-only mode.
 
 #### 5c. Record values in profile.md's `## Config`
 

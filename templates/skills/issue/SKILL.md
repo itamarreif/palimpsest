@@ -25,6 +25,7 @@ Do not use this for physical archival — hand off to `archive-issues` for that.
 - `done` — the issue's intended work is complete.
 - `draft` — the issue is framed but not yet active.
 - `in-progress` — actively being worked.
+- `backlog` — actionable work that is intentionally parked.
 - `blocked` — active but cannot currently proceed.
 - `cancelled` — no longer relevant, superseded, or closed due to staleness.
 - Never use `completed`. Normalize to `done`.

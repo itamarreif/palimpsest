@@ -17,8 +17,8 @@ When you are done, this file (`INIT_PROMPT.md`) can be deleted — it is a one-t
 
 Skills fall into two tiers:
 
-- **Core** (always kept): `issue`, `doc`, `asd-ste100`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
-- **Optional** (kept only if selected by the interview): `git`, `gh-cli`, `worktree-cleanup`, `rfc`, `master-issue`, `slack-summary`, `weekly-summary`.
+- **Core** (always kept): `issue`, `doc`, `asd-ste100`, `revise-issue`, `code-comments`, `code-references`, `work-estimates`, `plan-sketch`, `plan-revision`, `plan-checkpoint`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
+- **Optional** (kept only if selected by the interview): `git`, `gh-cli`, `worktree-cleanup`, `pr-scope-analysis`, `rfc`, `master-issue`, `slack-summary`, `weekly-summary`, `weekly-scratchpad-triage`.
 
 ---
 
@@ -58,7 +58,7 @@ This question is independent of whether the agent operates on code hosted on Git
 
 Ask each bundle question in order. Record which bundles the user accepts.
 
-**Bundle A — `github` (target: `git`, `gh-cli`, `worktree-cleanup`)**
+**Bundle A — `github` (target: `git`, `gh-cli`, `worktree-cleanup`, `pr-scope-analysis`)**
 
 > Will this agent work on code hosted on GitHub? [Y/N]
 
@@ -66,7 +66,7 @@ Ask each bundle question in order. Record which bundles the user accepts.
 
 > Will you write design documents or track multi-PR workstreams? [Y/N]
 
-**Bundle C — `reporting` (target: `slack-summary`, `weekly-summary`)**
+**Bundle C — `reporting` (target: `slack-summary`, `weekly-summary`, `weekly-scratchpad-triage`)**
 
 > Will you need Slack-ready updates or weekly summaries? [Y/N]
 
@@ -76,9 +76,7 @@ After asking all three, offer the escape hatch:
 
 Accept the user's overrides. Compute the final **installed skills** set = core skills + selected optional skills.
 
-**Cross-skill dependency note**: `rfc`, `master-issue`, and `weekly-summary` have sections that depend on `gh-cli`. The skill text already gates those sections with a "requires gh-cli" note, so it's safe to install them without `gh-cli`. If the user has picked any of these without `gh-cli`, mention it:
-
-> `<skill>` has some sections that depend on `gh-cli`. Those sections are gated with a "requires gh-cli" note; they'll be skipped at runtime. Proceed?
+**Cross-skill dependency note**: `pr-scope-analysis` requires `gh-cli`. If the user selects it without `gh-cli`, add `gh-cli` or remove `pr-scope-analysis` from the installed set. `rfc`, `master-issue`, and `weekly-summary` can run in limited local-only mode without `gh-cli`.
 
 ---
 
@@ -116,13 +114,15 @@ For each optional skill **not** in the installed set, delete its directory:
 rm -rf skills/git
 rm -rf skills/gh-cli
 rm -rf skills/worktree-cleanup
+rm -rf skills/pr-scope-analysis
 rm -rf skills/rfc
 rm -rf skills/master-issue
 rm -rf skills/slack-summary
 rm -rf skills/weekly-summary
+rm -rf skills/weekly-scratchpad-triage
 ```
 
-Only run the lines for skills that were rejected. Do not touch core skills (`issue`, `doc`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`).
+Only run the lines for skills that were rejected. Do not touch core skills (`issue`, `doc`, `asd-ste100`, `revise-issue`, `code-comments`, `code-references`, `work-estimates`, `plan-sketch`, `plan-revision`, `plan-checkpoint`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`).
 
 #### 5b. Substitute placeholders
 
@@ -132,7 +132,7 @@ Placeholders and their targets:
 
 | Placeholder | Value source | Files to substitute (if installed) |
 |-------------|--------------|------------------------------------|
-| `{{TARGET_REPOS}}` | Comma-separated target repos | `skills/gh-cli/SKILL.md`, `skills/weekly-summary/SKILL.md` |
+| `{{TARGET_REPOS}}` | Comma-separated target repos, or `none` when GitHub is not selected | `skills/gh-cli/SKILL.md`, `skills/weekly-summary/SKILL.md` |
 | `{{PRIMARY_REPO}}` | First target repo | `skills/gh-cli/SKILL.md`, `skills/rfc/SKILL.md` |
 | `{{BRANCH_PREFIX}}` | Branch prefix | `skills/git/SKILL.md` |
 | `{{WORKTREE_DIR}}` | Worktree dir | `skills/git/SKILL.md`, `skills/worktree-cleanup/SKILL.md` |
@@ -146,7 +146,7 @@ grep -rn '{{' skills/ && echo "WARNING: unsubstituted placeholders remaining" ||
 
 If any `{{...}}` tokens remain in installed skills, report them and offer to re-fill.
 
-**Empty-value handling**: if a value is empty (e.g., Stack is "none"), substitute the placeholder with an empty string. Where that leaves an awkward sentence fragment, trim the sentence or rephrase inline.
+**Empty-value handling**: if a value is empty, substitute the placeholder with an empty string. Set `{{TARGET_REPOS}}` to `none` when GitHub is not selected so `weekly-summary` remains usable in scratchpad-only mode.
 
 #### 5c. Record values in profile.md's `## Config`
 
@@ -167,10 +167,12 @@ Inside the `<!-- SKILL_INDEX_START -->` / `<!-- SKILL_INDEX_END -->` markers, ad
 | `git` | Local repo inspection, branching, staging, commits |
 | `gh-cli` | GitHub-hosted operations: PRs, issues, checks, comments |
 | `worktree-cleanup` | Auditing or cleaning up local worktrees |
+| `pr-scope-analysis` | Analyzing PR size and split boundaries |
 | `rfc` | Writing or promoting design documents |
 | `master-issue` | Multi-PR, multi-session workstream rollups |
 | `slack-summary` | Drafting Slack-ready updates or standup blurbs |
 | `weekly-summary` | End-of-week PR + scratchpad reconciliation |
+| `weekly-scratchpad-triage` | Weekly scratchpad lifecycle cleanup |
 
 Preserve the existing core rows. Do not remove the anchor comments.
 
@@ -184,7 +186,7 @@ Always include:
 
 Then include **only** the lines that apply to the installed optional skills:
 
-- If `gh-cli`, `rfc`, `master-issue`, or `weekly-summary` is installed:
+- If `gh-cli`, `pr-scope-analysis`, `rfc`, `master-issue`, or `weekly-summary` is installed:
   > `gh` CLI — install on macOS with `brew install gh`, Debian/Ubuntu with `apt install gh`, otherwise see https://cli.github.com. After install, run `gh auth login`.
 - If `worktree-cleanup` is installed:
   > `rg` (ripgrep) — install on macOS with `brew install ripgrep`, Debian/Ubuntu with `apt install ripgrep`.

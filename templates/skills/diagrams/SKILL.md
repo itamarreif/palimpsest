@@ -7,7 +7,7 @@ created: TODO
 
 # Diagrams
 
-Create visual explanations inside scratchpad docs, issues, and RFCs.
+Create visual explanations inside scratchpad docs and issues. Use this skill from plan-sketch when a planning artifact needs a diagram.
 
 ## Use This When
 

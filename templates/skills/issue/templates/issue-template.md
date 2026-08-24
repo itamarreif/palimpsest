@@ -29,8 +29,14 @@ tags: []
 
 ## Plan
 
+State: not-needed
+
 - [ ] <task>
 - [ ] <task>
+
+## Scope
+
+<Initial estimate and later actuals. See the work-estimates skill.>
 
 ## Decisions
 

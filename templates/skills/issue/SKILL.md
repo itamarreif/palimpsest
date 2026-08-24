@@ -25,6 +25,7 @@ Do not use this for physical archival — hand off to `archive-issues` for that.
 - `done` — the issue's intended work is complete.
 - `draft` — the issue is framed but not yet active.
 - `in-progress` — actively being worked.
+- `backlog` — actionable work that is intentionally parked.
 - `blocked` — active but cannot currently proceed.
 - `cancelled` — no longer relevant, superseded, or closed due to staleness.
 - Never use `completed`. Normalize to `done`.
@@ -55,6 +56,7 @@ Do not use this for physical archival — hand off to `archive-issues` for that.
 - **Obsidian CLI**: Use `obsidian property:set` for scalar frontmatter updates. Use `obsidian tasks todo file="N-slug"` to inspect plan progress. Use `obsidian task file="N-slug" line=N done` to toggle checkboxes.
 - Keep `updated:` accurate on material changes.
 - Use `## Status` for current truth, `## Decisions` for resolved choices, `## Superseded` for abandoned approaches, and `## Log` for dated session updates.
+- Use `## Scope` for append-only estimates and actuals. See `work-estimates`.
 
 ### 4. Complete an issue
 

@@ -19,7 +19,7 @@ Archive `done` or `cancelled` scratchpad issues so active work stays separate fr
 
 ### 1. Inventory active issues first
 
-- Bucket files into: `done` / `cancelled` / active `draft` or `in-progress`.
+- Bucket files into: `done` / `cancelled` / active `draft`, `in-progress`, `backlog`, or `blocked`.
 - Normalize any legacy `completed` status to `done` before archiving.
 
 ### 2. Print a candidate report before editing
@@ -42,6 +42,7 @@ Archive `done` or `cancelled` scratchpad issues so active work stays separate fr
 
 ### 5. Archive the files
 
+- When an issue has `## Scope` and an accessible linked PR diff, append measured actuals before moving it. Skip actuals when no diff is available; do not block archival.
 - Move files to `scratchpad/archive/issues/`.
 - Preserve filenames and IDs.
 

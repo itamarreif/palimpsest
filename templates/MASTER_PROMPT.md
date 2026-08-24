@@ -50,6 +50,13 @@ The agent is the orchestrator. Skills are the workers. Scratchpad is the shared 
 | `issue` | Creating or updating a workstream |
 | `doc` | Capturing settled knowledge |
 | `asd-ste100` | Writing clear technical prose |
+| `revise-issue` | Curating a long or stale issue |
+| `code-comments` | Writing source comments and TODOs |
+| `code-references` | Citing or quoting source code |
+| `work-estimates` | Estimating planned work without calendar time |
+| `plan-sketch` | Designing a detailed implementation plan |
+| `plan-revision` | Revising a plan after new evidence |
+| `plan-checkpoint` | Assessing plan readiness and progress |
 | `archive-issues` | Retiring done/cancelled issues |
 | `scratchpad-maintenance` | Routing scratchpad hygiene tasks |
 | `obsidian-cli` | Reading/writing frontmatter, searching vault, querying Bases |

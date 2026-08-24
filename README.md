@@ -84,6 +84,13 @@ Skills are procedural guides loaded on demand. They fall into two tiers.
 | `plan-sketch` | Create detailed implementation plans |
 | `plan-revision` | Update plans after new evidence |
 | `plan-checkpoint` | Assess plan readiness and progress |
+| `blast-radius-analysis` | Map affected callers, artifacts, and risks before a change |
+| `api-data-shape-mapping` | Map API and persisted-data changes |
+| `vertical-slice-mapping` | Map cross-layer flows and test seams |
+| `entity-relationship-mapping` | Map durable ownership and state transitions |
+| `boundary-invariant-mapping` | Assign validation and state invariants to one owner |
+| `representative-slice` | Prove one end-to-end path before generalizing |
+| `scope-and-split-gate` | Size work and define reviewable PR boundaries |
 | `archive-issues` | Move done/cancelled issues to archive |
 | `scratchpad-maintenance` | Route scratchpad hygiene tasks to the right skill |
 | `obsidian-cli` | Frontmatter, search, backlinks, Bases via the `obsidian` CLI |

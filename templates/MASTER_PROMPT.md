@@ -57,6 +57,13 @@ The agent is the orchestrator. Skills are the workers. Scratchpad is the shared 
 | `plan-sketch` | Designing a detailed implementation plan |
 | `plan-revision` | Revising a plan after new evidence |
 | `plan-checkpoint` | Assessing plan readiness and progress |
+| `blast-radius-analysis` | Mapping impact before a change |
+| `api-data-shape-mapping` | Mapping public and persisted shapes |
+| `vertical-slice-mapping` | Mapping cross-layer flows and test seams |
+| `entity-relationship-mapping` | Mapping durable ownership and state |
+| `boundary-invariant-mapping` | Assigning invariant ownership |
+| `representative-slice` | Proving one end-to-end path before generalizing |
+| `scope-and-split-gate` | Sizing work and defining review boundaries |
 | `archive-issues` | Retiring done/cancelled issues |
 | `scratchpad-maintenance` | Routing scratchpad hygiene tasks |
 | `obsidian-cli` | Reading/writing frontmatter, searching vault, querying Bases |

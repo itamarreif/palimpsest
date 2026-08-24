@@ -17,7 +17,7 @@ When you are done, this file (`INIT_PROMPT.md`) can be deleted — it is a one-t
 
 Skills fall into two tiers:
 
-- **Core** (always kept): `issue`, `doc`, `asd-ste100`, `revise-issue`, `code-comments`, `code-references`, `work-estimates`, `plan-sketch`, `plan-revision`, `plan-checkpoint`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
+- **Core** (always kept): `issue`, `doc`, `asd-ste100`, `revise-issue`, `code-comments`, `code-references`, `work-estimates`, `plan-sketch`, `plan-revision`, `plan-checkpoint`, `blast-radius-analysis`, `api-data-shape-mapping`, `vertical-slice-mapping`, `entity-relationship-mapping`, `boundary-invariant-mapping`, `representative-slice`, `scope-and-split-gate`, `archive-issues`, `scratchpad-maintenance`, `obsidian-cli`, `diagrams`.
 - **Optional** (kept only if selected by the interview): `git`, `gh-cli`, `worktree-cleanup`, `pr-scope-analysis`, `rfc`, `master-issue`, `slack-summary`, `weekly-summary`, `weekly-scratchpad-triage`.
 
 ---

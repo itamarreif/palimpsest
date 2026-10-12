@@ -42,6 +42,28 @@ The agent is the orchestrator. Skills are the workers. Scratchpad is the shared 
 
 ---
 
+## Harness Adapters
+
+This vault works with more than one agent harness. Harness features do not replace vault conventions.
+
+### Harness plan modes
+
+Harness plan modes produce drafts. Examples: omp plan mode, the OpenCode Plan agent, and Claude Code plan mode.
+
+- Treat a harness plan file as scratch input, not as a planning artifact.
+- Approval of a harness plan does not complete planning.
+- Before implementation, write the approved plan into the owning issue's `## Plan`. Use `plan-sketch` or `plan-revision`.
+- When the harness plan and the issue plan disagree, the issue plan wins.
+
+### Delegation
+
+Harness subagents do not always receive this prompt. For example, omp does not pass `AGENTS.md` to task subagents. When you delegate, put these items in the task:
+
+- The vault root and the owning issue path.
+- The rules from this prompt that the task needs.
+
+---
+
 ## Skill Index
 
 <!-- SKILL_INDEX_START -->

@@ -235,7 +235,7 @@ Replace the `TODO: Section N` placeholders with real sections. Add a dated entry
    ```bash
    bash scripts/link.sh claude                    # Claude Code only
    bash scripts/link.sh claude opencode           # multiple agents
-   bash scripts/link.sh claude codex opencode     # all three
+   bash scripts/link.sh claude codex opencode omp # all supported agents
    bash scripts/link.sh -f claude                 # overwrite existing
    ```
 

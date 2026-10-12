@@ -3,7 +3,7 @@
 #
 # Usage: ./scripts/link.sh [-f] [--vault <vault-dir>] [--dir <project-dir>] <agent...>
 #
-# Available agents: claude, codex, opencode
+# Available agents: claude, codex, opencode, omp
 #
 # Options:
 #   -f               Force — overwrite existing symlinks or files at the destination.
@@ -15,12 +15,13 @@
 #                      claude   → <path>/CLAUDE.md
 #                      codex    → <path>/AGENTS.md
 #                      opencode → <path>/.opencode/AGENTS.md
+#                      omp      → <path>/.omp/AGENTS.md
 #                    When omitted, links to the global config (~/.claude/CLAUDE.md, etc.).
 #
 # Examples:
 #   # Link to global agent configs (typical first-time setup)
 #   ./scripts/link.sh claude
-#   ./scripts/link.sh -f claude codex opencode
+#   ./scripts/link.sh -f claude codex opencode omp
 #
 #   # Link to a project directory so agents load the vault when working in that tree
 #   ./scripts/link.sh --vault ~/.agents --dir ~/code/ai claude opencode
@@ -41,6 +42,7 @@ agent_dest() {
       claude)   printf '%s\n' "$dir/CLAUDE.md" ;;
       codex)    printf '%s\n' "$dir/AGENTS.md" ;;
       opencode) printf '%s\n' "$dir/.opencode/AGENTS.md" ;;
+      omp)      printf '%s\n' "$dir/.omp/AGENTS.md" ;;
       *)        return 1 ;;
     esac
   else
@@ -48,12 +50,13 @@ agent_dest() {
       claude)   printf '%s\n' "$HOME/.claude/CLAUDE.md" ;;
       codex)    printf '%s\n' "$HOME/.codex/AGENTS.md" ;;
       opencode) printf '%s\n' "$HOME/.config/opencode/AGENTS.md" ;;
+      omp)      printf '%s\n' "$HOME/.omp/agent/AGENTS.md" ;;
       *)        return 1 ;;
     esac
   fi
 }
 
-SUPPORTED_AGENTS="claude codex opencode"
+SUPPORTED_AGENTS="claude codex opencode omp"
 
 usage() {
   echo "Usage: ./scripts/link.sh [-f] [--vault <vault-dir>] [--dir <project-dir>] <agent...>" >&2

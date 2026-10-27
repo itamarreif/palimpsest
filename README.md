@@ -13,7 +13,7 @@ Palimpsest gives AI agents durable memory across sessions via a structured direc
 ./scripts/init.sh ~/my-agent
 
 # 2. Link MASTER_PROMPT.md into your agent's config location
-./scripts/link.sh claude codex opencode
+./scripts/link.sh claude codex opencode omp
 
 # 3. Open INIT_PROMPT.md with your agent
 # The agent will walk you through completing the setup,
@@ -146,6 +146,9 @@ Symlinks `MASTER_PROMPT.md` into each agent's expected config location.
 | `claude` | `~/.claude/CLAUDE.md` |
 | `codex` | `~/.codex/AGENTS.md` |
 | `opencode` | `~/.config/opencode/AGENTS.md` |
+| `omp` | `~/.omp/agent/AGENTS.md` |
+
+omp gives `~/.omp/agent/AGENTS.md` priority over every other user-level context file, so linking it makes omp load this vault even when other harness files exist.
 
 **Options:**
 
@@ -158,6 +161,7 @@ Symlinks `MASTER_PROMPT.md` into each agent's expected config location.
   | `claude` | `<path>/CLAUDE.md` |
   | `codex` | `<path>/AGENTS.md` |
   | `opencode` | `<path>/.opencode/AGENTS.md` |
+  | `omp` | `<path>/.omp/AGENTS.md` |
 
 ```bash
 # Link to global agent configs (typical first-time setup)
